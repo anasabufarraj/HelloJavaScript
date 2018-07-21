@@ -1,0 +1,20 @@
+{
+  "name": "HelloJS",
+  "version": "1.0.0",
+  "description": "Training Projects",
+  "main": "index.js",
+  "repository": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "less": "^3.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "jest": "^23.4.1"
+  }
+}
