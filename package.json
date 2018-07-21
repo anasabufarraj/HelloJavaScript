@@ -1,9 +1,9 @@
 {
-  "name": "HelloJS",
+  "name": "HelloJavaScript",
   "version": "1.0.0",
   "description": "Training Projects",
   "main": "index.js",
-  "repository": "",
+  "repository": "github",
   "scripts": {
     "test": "jest"
   },
