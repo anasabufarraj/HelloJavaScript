@@ -1,1 +1,3 @@
-Hello JS
+Hello JavaScript
+Anas Abu Farraj
+@anasabufarraj
