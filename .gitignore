@@ -2,8 +2,8 @@
 # Lines that start with '#' are comments.
 
 # .gitignore file
-#################
 
 .DS_Store
-.idea/
-node_modules/
+.idea
+node_modules
+*.min.js

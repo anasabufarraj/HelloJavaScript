@@ -1,41 +1,5 @@
-// JavaScript Changing DOM
-// 5 Jul 2018
-// Anas Abu Farraj
-// @anasabufarraj
 console.info('Start something!');
-// function moveDown() {
-//   window.scroll({
-//     top: 10000,
-//     behavior: 'smooth'
-//   });
-// }
-// function moveUp() {
-//   window.scroll({
-//     top: 0,
-//     behavior: 'smooth'
-//   });
-// }
-// let state = navigator.onLine;
-//
-// if (state) {
-//   console.log()
-// } else {
-//   console.log('offline')
-// }
-//
-// (function onlineStatus() {
-//   if (window.navigator.onLine) {
-//     console.log('Browser online');
-//   } else
-//     console.log('Browser offline');
-// }());
-// const button = window.document.querySelector('#myButton');
-//
-// button.addEventListener('click', function (event) {
-//   event.preventDefault();
-//   console.log('Clicked')
-// }, false);
-var CoursesInfo = /** @class */ (function () {
+var CoursesInfo = (function () {
     function CoursesInfo(title, instructor, level, views) {
         this.title = title;
         this.instructor = instructor;
@@ -47,7 +11,6 @@ var CoursesInfo = /** @class */ (function () {
     };
     return CoursesInfo;
 }());
-// Courses List
 var course = [
     new CoursesInfo('Java Debugging', 'Morton  Bon', 2, 122),
     new CoursesInfo('Java Essentials', 'John Peterson', 1, 454),
