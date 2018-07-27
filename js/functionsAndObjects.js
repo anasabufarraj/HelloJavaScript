@@ -7,3 +7,4 @@ var mediumSize = giveMeEm(18);
 var largeSize = giveMeEm(24);
 console.log('Small size: ', smallSize, 'px');
 console.log('Medium size: ', mediumSize, 'px');
+//# sourceMappingURL=functionsAndObjects.js.map

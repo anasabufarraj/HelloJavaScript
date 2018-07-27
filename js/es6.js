@@ -10,3 +10,4 @@ var attendance = {
 attendance.addName = 'John';
 console.log(attendance.list);
 console.log(attendance._list);
+//# sourceMappingURL=es6.js.map

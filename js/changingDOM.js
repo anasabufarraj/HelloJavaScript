@@ -22,3 +22,4 @@ console.log(course[0].views);
 course[0].updateView();
 console.log(course[0].views);
 console.log(course[1]['views']);
+//# sourceMappingURL=changingDOM.js.map

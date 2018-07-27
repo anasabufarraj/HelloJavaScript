@@ -1,5 +1,5 @@
 {
-  "name": "HelloJavaScript",
+  "name": "hellojavascript",
   "version": "1.0.0",
   "description": "Training Projects",
   "main": "index.js",
@@ -12,10 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "less": "^3.7.1"
+    "less": "^3.8.0",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "@types/node": "^10.5.2",
+    "@types/node": "^10.5.3",
     "jest": "^23.4.1",
     "lite-server": "^2.4.0"
   }

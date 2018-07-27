@@ -1,23 +1,33 @@
-// Defaults
+// variables
+@typeBlue: #7ea34b;
+@typeBlack: #212121;
+
+// main styles
 body {
   padding: 20px;
-}
-
-body {
   font-family: sans-serif;
 }
 
+// content
 h2 {
-  color: coral;
+  color: @typeBlack;
   cursor: default;
+  transition: .2s ease-in-out;
+  span {
+    color: @typeBlue;
+    background-color: #fff;
+    transition: .2s ease-in-out;
+  }
 }
 
-h2:hover {
-  color: lightgray;
+h2:hover span {
+  span {
+    color: lightgray;
+  }
 }
 
 div {
-  border: 1px solid coral;
+  border: 1px solid @typeBlack;
 }
 
 #myDiv {
