@@ -154,14 +154,14 @@
 // console.log(a);
 // console.log(b);
 
-var a = "99.99";
-var b = 99.99;
-if (a == b) {
-  console.log(true)
-}
-
-var x = /* literal value */ 42;
-console.log(x);
+// var a = "99.99";
+// var b = 99.99;
+// if (a == b) {
+//   console.log(true)
+// }
+//
+// var x = /* literal value */ 42;
+// console.log(x);
 
 
 

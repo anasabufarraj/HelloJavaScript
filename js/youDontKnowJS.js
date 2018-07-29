@@ -12,7 +12,7 @@
 // console.log(obj[b]); // Hello world
 // console.log(obj['b']); // 42
 
-/// --- Using Arrays as Objects
+//// --- Using Arrays as Objects
 // const obj = {0: 'John', 1: 'Peter', 2: 'Dolly'};
 //
 // console.log(obj[0]); // John
@@ -34,7 +34,7 @@
 //
 // console.log(foo.a, foo.b);
 
-/// --- functions
+//// --- functions
 // function foo() {
 //   return 42
 // }
@@ -56,11 +56,11 @@
 // console.log(foo.greeting); // 'Welcome'
 // console.log(typeof foo.greeting); // string
 
-/// --- coercion
+//// --- coercion
 // let a = "42";
 // let b = a * 2; // implicit coercion
 
-/// --- Truthy and Falsy
+//// --- Truthy and Falsy
 // let a = {'a': 5};
 // let b = {'a': 5};
 //

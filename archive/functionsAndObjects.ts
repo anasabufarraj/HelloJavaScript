@@ -127,17 +127,17 @@
 // course[0].updateView();
 // console.log(course[0].views);
 
-function giveMeEm(pixels: any) {
-  let baseValue = 16;
-  return pixels/baseValue;
-}
-
-let smallSize = giveMeEm(12);
-let mediumSize = giveMeEm(18);
-let largeSize = giveMeEm(24);
-
-console.log('Small size: ', smallSize, 'px');
-console.log('Medium size: ', mediumSize, 'px');
+// function giveMeEm(pixels: any) {
+//   let baseValue = 16;
+//   return pixels/baseValue;
+// }
+//
+// let smallSize = giveMeEm(12);
+// let mediumSize = giveMeEm(18);
+// let largeSize = giveMeEm(24);
+//
+// console.log('Small size: ', smallSize, 'px');
+// console.log('Medium size: ', mediumSize, 'px');
 
 
 
