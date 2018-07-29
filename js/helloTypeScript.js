@@ -29,17 +29,4 @@ var list2 = [1, 2, 3];
 console.log(list1, list2);
 var dateStamp = new Date(Date.now());
 console.log(dateStamp);
-var ToDoApp;
-(function (ToDoApp) {
-    var Model;
-    (function (Model) {
-        var ToDoState;
-        (function (ToDoState) {
-            ToDoState[ToDoState["NEw"] = 1] = "NEw";
-            ToDoState[ToDoState["Active"] = 2] = "Active";
-            ToDoState[ToDoState["Completed"] = 3] = "Completed";
-            ToDoState[ToDoState["Delete"] = 4] = "Delete";
-        })(ToDoState = Model.ToDoState || (Model.ToDoState = {}));
-    })(Model = ToDoApp.Model || (ToDoApp.Model = {}));
-})(ToDoApp || (ToDoApp = {}));
 //# sourceMappingURL=helloTypeScript.js.map

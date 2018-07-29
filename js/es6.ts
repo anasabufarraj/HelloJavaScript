@@ -395,19 +395,19 @@ Start Date: 13 Jun 2018
 // tacoma.description();
 
 
-let attendance = {
-    _list: [],
-    set addName(name) {
-        this._list.push(name)
-    },
-    get list() {
-        return this._list.join(', ')
-    }
-};
-
-attendance.addName = 'John';
-console.log(attendance.list); // John
-console.log(attendance._list); // ["John"]
+// let attendance = {
+//     _list: [],
+//     set addName(name) {
+//         this._list.push(name)
+//     },
+//     get list() {
+//         return this._list.join(', ')
+//     }
+// };
+//
+// attendance.addName = 'John';
+// console.log(attendance.list); // John
+// console.log(attendance._list); // ["John"]
 
 
 

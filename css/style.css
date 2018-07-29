@@ -5,14 +5,17 @@ body {
 h2 {
   color: #212121;
   cursor: default;
-  transition: 0.2s ease-in-out;
+  transition: 0.125s ease-in-out;
 }
 h2 span {
   color: #7ea34b;
   background-color: #fff;
-  transition: 0.2s ease-in-out;
+  transition: 0.125s ease-in-out;
 }
-h2:hover span span {
+h2:hover {
+  color: lightgray;
+}
+h2:hover span {
   color: lightgray;
 }
 div {

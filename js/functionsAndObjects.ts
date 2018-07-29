@@ -127,7 +127,7 @@
 // course[0].updateView();
 // console.log(course[0].views);
 
-function giveMeEm(pixels) {
+function giveMeEm(pixels: any) {
   let baseValue = 16;
   return pixels/baseValue;
 }

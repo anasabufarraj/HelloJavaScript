@@ -40,12 +40,12 @@ console.info('Start something!');
 // }, false);
 
 class CoursesInfo {
-  title: String;
-  instructor: String;
-  level: Number;
-  views: any;
+  title: string;
+  instructor: string;
+  level: number;
+  views: number;
 
-  constructor(title, instructor, level, views) {
+  constructor(title: string, instructor: string, level: number, views: number) {
     this.title = title;
     this.instructor = instructor;
     this.level = level;

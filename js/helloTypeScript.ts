@@ -129,31 +129,31 @@ let dateStamp: Date = new Date(Date.now());
 console.log(dateStamp);
 
 /// --- Namespaces
-namespace ToDoApp.Model {
-  export interface ToDo {
-    id: number;
-    name: string;
-    state: toDoState;
-  }
-}
-
-namespace ToDoApp.Model {
-  export enum ToDoState {
-    NEw = 1,
-    Active,
-    Completed,
-    Delete
-  }
-}
-
-namespace DataAccess {
-
-  import ToDo = ToDoApp.Model.ToDo;
-
-  interface ToDoService {
-    add(todo: ToDo): ToDo;
-    delete(toDoId: number): void;
-    getAll(): ToDo[];
-    getById(toDoId: number): ToDo;
-  }
-}
+// namespace ToDoApp.Model {
+//   export interface ToDo {
+//     id: number;
+//     name: string;
+//     state: toDoState;
+//   }
+// }
+//
+// namespace ToDoApp.Model {
+//   export enum ToDoState {
+//     NEw = 1,
+//     Active,
+//     Completed,
+//     Delete
+//   }
+// }
+//
+// namespace DataAccess {
+//
+//   import ToDo = ToDoApp.Model.ToDo;
+//
+//   interface ToDoService {
+//     add(todo: ToDo): ToDo;
+//     delete(toDoId: number): void;
+//     getAll(): ToDo[];
+//     getById(toDoId: number): ToDo;
+//   }
+// }
