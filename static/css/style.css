@@ -8,7 +8,7 @@ h2 {
   transition: 0.125s ease-in-out;
 }
 h2 span {
-  color: #7ea34b;
+  color: #f2ce6b;
   background-color: #fff;
   transition: 0.125s ease-in-out;
 }
@@ -22,8 +22,8 @@ div {
   border: 1px solid #212121;
 }
 #myDiv {
-  width: 100px;
-  height: 100px;
+  width: 108px;
+  height: 108px;
   padding: 10px;
   margin: auto;
 }

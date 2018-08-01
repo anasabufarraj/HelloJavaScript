@@ -86,9 +86,36 @@
 //
 // console.log(a < b < c);
 
-'use strict';
-function foo() {
-  a = 1;
-}
-foo();
-console.log(a);
+// 'use strict';
+// function foo() {
+//   a = 1;
+// }
+// foo();
+// console.log(a);
+
+// let a = 42;
+//
+// switch (a) {
+//   case 42:
+//   case 0:
+//     console.log('a is 0');
+//     break;
+//   default:
+//     console.log('a is', a)
+// }
+
+// "use strict";
+// function foo() {
+//   // this code is strict mode
+//
+//   function bar() {
+//     // this code is strict mode
+//
+//   }
+// }
+// // this code is strict mode
+//
+// function foo() {
+//   "use strict";  // turn on strict mode
+//   a = 1;         // `var` missing, ReferenceError
+// }
