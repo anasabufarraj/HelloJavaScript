@@ -19,6 +19,7 @@ h2:hover span {
   color: lightgray;
 }
 div {
+  display: flex;
   border: 1px solid #212121;
 }
 #myDiv {

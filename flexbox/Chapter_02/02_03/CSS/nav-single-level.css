@@ -1,0 +1,100 @@
+/* © Copyright 2018, Anas Abu Farraj. */
+/* Styles for Single Level Menu */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Sansation-Light, sans-serif;
+}
+:root {
+  background-color: #fff;
+}
+.flex-container {
+  color: white;
+  background-color: #212121;
+  font-size: 12px;
+  height: 120px;
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+}
+div.flex-container__box:nth-child(4) {
+  height: 83px;
+  align-self: flex-start;
+  flex-basis: 30%;
+  background-color: steelblue;
+}
+div.flex-container__box:nth-child(6) {
+  height: 83px;
+  align-self: flex-end;
+  background-color: steelblue;
+}
+.flex-container__box {
+  color: unset;
+  background-color: coral;
+  margin: 6px;
+  padding: 20px 20px;
+  text-align: center;
+  flex: 1 1 auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 125ms ease-in-out 50ms;
+  -moz-transition: all 125ms ease-in-out 50ms;
+  -o-transition: all 125ms ease-in-out 50ms;
+  transition: all 125ms ease-in-out 50ms;
+}
+.flex-container__box:hover {
+  color: rgba(255, 255, 255, 0.5);
+  background: #212121;
+  cursor: default;
+}
+.grid-container {
+  color: white;
+  background-color: #212121;
+  font-size: 12px;
+  display: grid;
+  grid-template-rows: 120px 120px;
+  grid-template-columns: 25% 25% 1fr;
+}
+.grid-item {
+  margin: 6px;
+  padding: 30px;
+  text-align: center;
+  -webkit-transition: all 125ms ease-in-out 50ms;
+  -moz-transition: all 125ms ease-in-out 50ms;
+  -o-transition: all 125ms ease-in-out 50ms;
+  transition: all 125ms ease-in-out 50ms;
+}
+.grid-item__1 {
+  background-color: orange;
+}
+.grid-item__2 {
+  background-color: olive;
+}
+.grid-item__3 {
+  background-color: violet;
+}
+.grid-item__4 {
+  background-color: pink;
+}
+.grid-item__5 {
+  background-color: steelblue;
+}
+.grid-item__6 {
+  background-color: saddlebrown;
+}
+.grid-item:hover {
+  color: rgba(255, 255, 255, 0.5);
+  background: #464646;
+  cursor: default;
+}
+@media screen and (min-width: 30em) {
+  .single-nav ul {
+    display: flex;
+  }
+}
+/*# sourceMappingURL=nav-single-level.css.map */

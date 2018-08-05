@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Sansation-Light';
+  src: url(../fonts/Sansation-Light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Sansation-Regular';
+  src: url(../fonts/Sansation-Regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Sansation-Bold';
+  src: url(../fonts/Sansation-Regular.woff) format('woff');
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Sansation-Light, sans-serif;
+}
+body {
+  padding: 20px;
+}
+h2 {
+  color: #FF7F50;
+  cursor: default;
+  transition: 0.125s ease-in-out;
+}
+h2 span {
+  color: #1997cc;
+  background-color: #fff;
+  transition: 0.125s ease-in-out;
+}
+h2:hover {
+  color: lightgray;
+}
+h2:hover span {
+  color: lightgray;
+}
+/*# sourceMappingURL=flexbox.css.map */

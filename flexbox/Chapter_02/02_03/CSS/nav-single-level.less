@@ -1,0 +1,127 @@
+/* © Copyright 2018, Anas Abu Farraj. */
+/* Styles for Single Level Menu */
+
+// normalization --------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Sansation-Light, sans-serif;
+}
+
+:root {
+  background-color: #fff;
+}
+
+// main -----------------------------------------------------------
+.flex-container {
+  color: white;
+  background-color: #212121;
+  font-size: 12px;
+  height: 120px;
+  border-bottom: 1px solid white;
+
+  display: flex; // flex | inline-flex
+  justify-content: space-evenly; // start | end | center | space-between | ...
+  flex-direction: row-reverse; // row | row-reverse | column | column-reverse
+  flex-wrap: wrap; // nowrap | wrap | wrap-reverse
+  align-items: center;
+}
+
+div.flex-container__box:nth-child(4) { // select 4th div of parent .flex-container
+  height: 83px;
+  align-self: flex-start;
+  flex-basis: 30%;
+  background-color: steelblue;
+}
+
+div.flex-container__box:nth-child(6) { // select 4th div of parent .flex-container
+  height: 83px;
+  align-self: flex-end;
+  background-color: steelblue;
+  //order: -1;
+}
+
+.flex-container__box {
+  color: unset;
+  background-color: coral;
+  margin: 6px;
+  padding: 20px 20px;
+  text-align: center;
+
+  //flexbox
+  flex: 1 1 auto;
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 125ms ease-in-out 50ms;
+  -moz-transition: all 125ms ease-in-out 50ms;
+  -o-transition: all 125ms ease-in-out 50ms;
+  transition: all 125ms ease-in-out 50ms;
+  &:hover {
+    color: rgba(255, 255, 255, 0.5);
+    background: #212121;
+    cursor: default;
+  }
+}
+
+// grid ----------------------------------------------------------
+.grid-container {
+  color: white;
+  background-color: #212121;
+  font-size: 12px;
+
+  display: grid; // grid | inline-grid
+  grid-template-rows: 120px 120px;
+  grid-template-columns: 25% 25% 1fr; // 1 unit vs. 2 units
+
+}
+
+.grid-item {
+  margin: 6px;
+  padding: 30px;
+  text-align: center;
+
+  //flexbox
+  //flex: 1 1 auto;
+
+  //-webkit-border-radius: 4px;
+  //-moz-border-radius: 4px;
+  //border-radius: 4px;
+  -webkit-transition: all 125ms ease-in-out 50ms;
+  -moz-transition: all 125ms ease-in-out 50ms;
+  -o-transition: all 125ms ease-in-out 50ms;
+  transition: all 125ms ease-in-out 50ms;
+  &__1 {
+    background-color: orange;
+  }
+  &__2 {
+    background-color: olive;
+  }
+  &__3 {
+    background-color: violet;
+  }
+  &__4 {
+    background-color: pink;
+  }
+  &__5 {
+    background-color: steelblue;
+  }
+  &__6 {
+    background-color: saddlebrown;
+  }
+  &:hover {
+    color: rgba(255, 255, 255, 0.5);
+    background: rgb(70, 70, 70);
+    cursor: default;
+  }
+}
+
+// media queries -------------------------------------------------
+@media screen and (min-width: 30em){
+  .single-nav ul {
+    display: flex;
+  }
+}
+
