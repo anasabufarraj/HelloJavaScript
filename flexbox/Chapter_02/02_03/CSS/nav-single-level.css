@@ -9,7 +9,7 @@
 :root {
   background-color: #fff;
 }
-.flex-container {
+.flexbox {
   color: white;
   background-color: #212121;
   font-size: 12px;
@@ -21,18 +21,18 @@
   flex-wrap: wrap;
   align-items: center;
 }
-div.flex-container__box:nth-child(4) {
+div.flexbox__element:nth-child(4) {
   height: 83px;
   align-self: flex-start;
   flex-basis: 30%;
   background-color: steelblue;
 }
-div.flex-container__box:nth-child(6) {
+div.flexbox__element:nth-child(6) {
   height: 83px;
   align-self: flex-end;
   background-color: steelblue;
 }
-.flex-container__box {
+.flexbox__element {
   color: unset;
   background-color: coral;
   margin: 6px;
@@ -47,21 +47,22 @@ div.flex-container__box:nth-child(6) {
   -o-transition: all 125ms ease-in-out 50ms;
   transition: all 125ms ease-in-out 50ms;
 }
-.flex-container__box:hover {
+.flexbox__element:hover {
   color: rgba(255, 255, 255, 0.5);
   background: #212121;
   cursor: default;
 }
-.grid-container {
+.grid {
   color: white;
   background-color: #212121;
   font-size: 12px;
+  padding: 12px;
   display: grid;
-  grid-template-rows: 120px 120px;
+  grid-template-rows: repeat(2, 120px);
   grid-template-columns: 25% 25% 1fr;
+  grid-gap: 6px 12px;
 }
-.grid-item {
-  margin: 6px;
+.grid__element {
   padding: 30px;
   text-align: center;
   -webkit-transition: all 125ms ease-in-out 50ms;
@@ -69,25 +70,30 @@ div.flex-container__box:nth-child(6) {
   -o-transition: all 125ms ease-in-out 50ms;
   transition: all 125ms ease-in-out 50ms;
 }
-.grid-item__1 {
+.grid__element--1 {
   background-color: orange;
+  -ms-grid-row: 0.33333333;
+  grid-row: 2 span;
 }
-.grid-item__2 {
+.grid__element--2 {
   background-color: olive;
+  -ms-grid-column: 0.5;
+  grid-column: 2 span;
 }
-.grid-item__3 {
+.grid__element--3 {
   background-color: violet;
 }
-.grid-item__4 {
+.grid__element--4 {
   background-color: pink;
 }
-.grid-item__5 {
+.grid__element--5 {
   background-color: steelblue;
 }
-.grid-item__6 {
+.grid__element--6 {
   background-color: saddlebrown;
+  grid-column: 2 span;
 }
-.grid-item:hover {
+.grid__element:hover {
   color: rgba(255, 255, 255, 0.5);
   background: #464646;
   cursor: default;
