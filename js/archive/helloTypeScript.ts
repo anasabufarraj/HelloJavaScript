@@ -1,4 +1,4 @@
-// © Copyright 2018, Anas Abu Farraj.
+// (c) Copyright 2018, Anas Abu Farraj.
 // TypeScript Training Project
 // 21 July 2018
 

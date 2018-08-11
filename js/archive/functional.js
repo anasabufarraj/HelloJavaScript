@@ -1,4 +1,4 @@
-// © Copyright 2018, Anas Abu Farraj.
+// (c) Copyright 2018, Anas Abu Farraj.
 // TypeFunctional Programming
 // 26 July 2018
 

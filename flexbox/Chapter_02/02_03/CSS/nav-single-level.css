@@ -1,4 +1,4 @@
-/* © Copyright 2018, Anas Abu Farraj. */
+/* (c) Copyright 2018, Anas Abu Farraj. */
 /* Styles for Single Level Menu */
 * {
   margin: 0;
@@ -58,13 +58,17 @@ div.flexbox__element:nth-child(6) {
   font-size: 12px;
   padding: 12px;
   display: grid;
-  grid-template-rows: repeat(2, 120px);
-  grid-template-columns: 25% 25% 1fr;
-  grid-gap: 6px 12px;
+  grid-template-rows: repeat(4, 100px) [row-end];
+  grid-template-columns: [col-start] 25% 25% [col-end];
+  grid-gap: 10px 10px;
+  justify-content: center;
 }
 .grid__element {
   padding: 30px;
   text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   -webkit-transition: all 125ms ease-in-out 50ms;
   -moz-transition: all 125ms ease-in-out 50ms;
   -o-transition: all 125ms ease-in-out 50ms;
@@ -72,13 +76,9 @@ div.flexbox__element:nth-child(6) {
 }
 .grid__element--1 {
   background-color: orange;
-  -ms-grid-row: 0.33333333;
-  grid-row: 2 span;
 }
 .grid__element--2 {
   background-color: olive;
-  -ms-grid-column: 0.5;
-  grid-column: 2 span;
 }
 .grid__element--3 {
   background-color: violet;
@@ -91,7 +91,6 @@ div.flexbox__element:nth-child(6) {
 }
 .grid__element--6 {
   background-color: saddlebrown;
-  grid-column: 2 span;
 }
 .grid__element:hover {
   color: rgba(255, 255, 255, 0.5);

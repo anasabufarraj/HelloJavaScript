@@ -1,4 +1,4 @@
-// © Copyright 2018, Anas Abu Farraj.
+// (c) Copyright 2018, Anas Abu Farraj.
 
 // function to simplify using console.log
 // export function output(value: any): void {

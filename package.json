@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "less": "^3.8.0",
+    "less": "^3.8.1",
     "npm": "^6.3.0",
     "typescript": "^3.0.1"
   },

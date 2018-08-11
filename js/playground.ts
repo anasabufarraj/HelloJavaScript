@@ -1,10 +1,11 @@
-// © Copyright 2018, Anas Abu Farraj.
+// (c) Copyright 2018, Anas Abu Farraj.
 // TypeScript Playground
 // 29 Jul 2018
 
-let foo: string = function() {
-  return 'Hello'
-}();
+function bar(a: any = undefined) {
+  console.log(a)
+}
 
-console.log(foo);
-// console.log(typeof foo);
+bar(3);
+
+console.log();
