@@ -7,5 +7,4 @@ function bar(a: any = undefined) {
 }
 
 bar(3);
-
 console.log();
