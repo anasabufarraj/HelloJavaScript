@@ -1,34 +1,28 @@
-body {
-  padding: 20px;
-  font-family: sans-serif;
+@font-face {
+  font-family: 'Sansation-Light';
+  src: url(../fonts/Sansation-Light.woff) format('woff');
 }
-h2 {
+@font-face {
+  font-family: 'Sansation-Regular';
+  src: url(../fonts/Sansation-Regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Sansation-Bold';
+  src: url(../fonts/Sansation-Regular.woff) format('woff');
+}
+body {
+  padding: 4px 14px;
+  font-family: Sansation-Light, sans-serif;
+}
+.header {
   color: #212121;
+  background-color: inherit;
   cursor: default;
   transition: 0.125s ease-in-out;
 }
-h2 span {
+.header span {
   color: #f2cb5d;
-  background-color: #fff;
+  background-color: inherit;
   transition: 0.125s ease-in-out;
-}
-h2:hover {
-  color: lightgray;
-}
-h2:hover span {
-  color: lightgray;
-}
-div {
-  display: flex;
-  border: 1px solid #212121;
-}
-#myDiv {
-  width: 130px;
-  height: 130px;
-  padding: 10px;
-  margin: auto;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
 }
 /*# sourceMappingURL=style.css.map */

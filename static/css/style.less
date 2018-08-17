@@ -1,43 +1,19 @@
-// variables
-@typeColor: #f2cb5d;
-@typeBlack: #212121;
+@import "_fonts";
+@import "_variables";
 
-// main styles
 body {
-  padding: 20px;
-  font-family: sans-serif;
+  padding: 4px 14px;
+  font-family: Sansation-Light, sans-serif;
 }
 
-// content
-h2 {
+.header {
   color: @typeBlack;
+  background-color: inherit;
   cursor: default;
   transition: .125s ease-in-out;
   span {
     color: @typeColor;
-    background-color: #fff;
+    background-color: inherit;
     transition: .125s ease-in-out;
   }
-}
-
-h2:hover {
-  color: lightgray;
-  span {
-    color: lightgray;
-  }
-}
-
-div {
-  display: flex;
-  border: 1px solid @typeBlack;
-}
-
-#myDiv {
-  width: 130px;
-  height: 130px;
-  padding: 10px;
-  margin: auto; // align to center
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
 }

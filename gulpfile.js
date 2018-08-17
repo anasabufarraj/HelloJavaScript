@@ -1,12 +1,21 @@
 const gulp = require('gulp');
-const image = require('gulp-image');
-const destination = 'build/';
+const imgOptimization = require('gulp-imagemin');
+const svgOptimization = require('gulp-svgmin');
+const destination = './build';
 
-// optimizing images
+// image optimization
 gulp.task('image', function () {
-  gulp.src('static/img/**,*.{jpg,JPG,png}')
-    .pipe(image())
-    .pipe(gulp.dest(destination + 'img/'));
+  return gulp.src('./static/img/**,*.{jpg,JPG,png}')
+    .pipe(imgOptimization())
+    .pipe(gulp.dest(destination + '/img'));
 });
 
-gulp.task('default', ['image']);
+// svg optimization
+gulp.task('svg', function () {
+  return gulp.src('./static/img/**,*.{svg}')
+    .pipe(svgOptimization())
+    .pipe(gulp.dest(destination + '/img'));
+});
+
+gulp.task('default', ['image', 'svg']);
+
