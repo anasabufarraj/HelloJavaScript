@@ -2,3 +2,8 @@
 // JavaScript Playground
 // 29 Jun 2018
 
+function foo(a) {
+  return a
+}
+
+console.log(foo(42));
