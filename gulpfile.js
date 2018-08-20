@@ -94,6 +94,7 @@ gulp.task('revReplace', ['revision'], function () {
     .pipe(gulp.dest(destination))
 });
 
+
 // // watch everything
 gulp.task('watch', function () {
   gulp.watch(source + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
