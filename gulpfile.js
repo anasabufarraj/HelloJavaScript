@@ -56,6 +56,18 @@ gulp.task('svg', function () {
     .pipe(gulp.dest(temp + '/assets'));
 });
 
+// font files
+gulp.task('fonts', function () {
+  return gulp.src(source + 'assets/fonts/**')
+    .pipe(gulp.dest(destination + 'assets/fonts'));
+});
+
+// .htaccess files
+gulp.task('htaccess', function () {
+  return gulp.src(source + '.htaccess')
+    .pipe(gulp.dest(destination));
+});
+
 // revision files with hash identifier based on content
 gulp.task('revision', ['html', 'css', 'js', 'image', 'svg'], function () {
   return gulp.src(temp + '**/*.{css,js,jpg,jpeg,png,svg}')
@@ -76,18 +88,6 @@ gulp.task('revReplace', ['revision'], function () {
     .pipe(gulp.dest(destination))
 });
 
-// font files
-gulp.task('fonts', function () {
-  return gulp.src(source + 'assets/fonts/**')
-    .pipe(gulp.dest(destination + 'assets/fonts'));
-});
-
-// .htaccess files
-gulp.task('htaccess', function () {
-  return gulp.src(source + '.htaccess')
-    .pipe(gulp.dest(destination));
-});
-
 // // watch everything
 gulp.task('watch', function () {
   gulp.watch(source + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
@@ -95,4 +95,4 @@ gulp.task('watch', function () {
   gulp.watch(source + '.htaccess', ['htaccess'])
 });
 
-gulp.task('default', ['revReplace', 'fonts', 'htaccess', 'watch']);
+gulp.task('default', ['fonts', 'htaccess', 'revReplace', 'watch']);
