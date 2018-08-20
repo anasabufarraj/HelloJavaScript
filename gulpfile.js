@@ -2,62 +2,64 @@ const gulp = require('gulp');
 const htmlMinify = require('gulp-htmlmin');
 const cssNano = require('gulp-cssnano');
 const minify = require('gulp-minify');
-const imageOptimize = require('gulp-imagemin');
-const svgOptimize = require('gulp-svgmin');
+const rev = require('gulp-rev');
+const revDel = require('rev-del');
+
+const limbo = 'limbo';
+const source = 'public';
 const destination = 'build';
 
-// minify html
-gulp.task('html', function() {
-  return gulp.src('*.html')
+// minify HTML
+gulp.task('html', function () {
+  return gulp.src(source + '/*.html')
     .pipe(htmlMinify({
       collapseWhitespace: true,
       removeComments: true
     }))
-    .pipe(gulp.dest(destination));
+    .pipe(gulp.dest(limbo));
 });
 
-// minify css
-gulp.task('css', function() {
-  return gulp.src('static/css/*.css')
+// minify CSS with cssnano
+gulp.task('css', function () {
+  return gulp.src(source + '/styles/style.css')
     .pipe(cssNano())
-    .pipe(gulp.dest(destination + '/static/css'));
+    .pipe(gulp.dest(limbo + '/styles'));
 });
 
-// minify js
-gulp.task('js', function() {
-  gulp.src('js/script.js')
+// minify JavaScript with terser
+gulp.task('js', function () {
+  gulp.src(source + '/scripts/**/*.js')
     .pipe(minify({
       ext:{
         src: '-debug.js',
-        min: '-min.js'
+        min: '.js'
       },
       noSource: true,
       ignoreFiles: ['-min.js']
     }))
-    .pipe(gulp.dest(destination + '/js'))
+    .pipe(gulp.dest(limbo + '/scripts'))
 });
 
-// optimization 'jpg' and 'png'
-gulp.task('image', function () {
-  return gulp.src('static/img/*.{jpg,JPG,png}')
-    .pipe(imageOptimize())
-    .pipe(gulp.dest(destination + '/static/img'));
+// revision files with hash identifier based on content
+gulp.task('revision', ['html', 'css', 'js'], function () {
+  return gulp.src(limbo + '/**/*.{html,css,js}')
+    .pipe(rev())
+    .pipe(gulp.dest(destination))
+    .pipe(rev.manifest())
+    .pipe(revDel({destination: destination}))
+    .pipe(gulp.dest(destination))
 });
 
-// optimization 'svg'
-gulp.task('svg', function () {
-  return gulp.src('static/img/*.svg')
-    .pipe(svgOptimize())
-    .pipe(gulp.dest(destination + '/static/img'));
+// font files
+gulp.task('fonts', function () {
+  return gulp.src(source + '/assets/fonts/**')
+    .pipe(gulp.dest(destination + '/assets/fonts'));
 });
 
-// watch everything
-gulp.task('watch', function() {
-  gulp.watch('*.html', ['html']);
-  gulp.watch('css/*.css', ['css']);
-  gulp.watch('js/script.js', ['js']);
-  gulp.watch('img/*.{jpg,JPG,png}', ['image']);
-  gulp.watch('img/*.svg', ['svg']);
+// .htaccess files
+gulp.task('hta', function () {
+  return gulp.src(source + '/.htaccess')
+    .pipe(gulp.dest(destination));
 });
 
-gulp.task('default', ['html', 'css', 'js', 'image', 'svg', 'watch']);
+gulp.task('default', ['revision', 'fonts', 'hta']);
