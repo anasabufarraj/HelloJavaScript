@@ -1,13 +1,13 @@
-const gulp = require('gulp');
+// const gulp = require('gulp');
 // const htmlMinify = require('gulp-htmlmin');
-const cssNano = require('gulp-cssnano');
+// const cssNano = require('gulp-cssnano');
 // const minify = require('gulp-minify');
-const imageOptimize = require('gulp-imagemin');
-const svgOptimize = require('gulp-svgmin');
-const rev = require('gulp-rev');
+// const imageOptimize = require('gulp-imagemin');
+// const svgOptimize = require('gulp-svgmin');
+// const rev = require('gulp-rev');
 // const revReplace = require('gulp-rev-replace');
 // const revDel = require('rev-del');
-const destination = 'build';
+// const destination = 'build';
 // const limbo = 'limbo';
 
 // minify html
@@ -28,32 +28,32 @@ const destination = 'build';
 // });
 
 // minify js
-gulp.task('js', function () {
-  gulp.src('js/script.js')
-    .pipe(minify({
-      ext:{
-        src: '-debug.js',
-        min: '.js'
-      },
-      noSource: true,
-      ignoreFiles: ['-min.js']
-    }))
-    .pipe(gulp.dest(destination + '/script'))
-});
+// gulp.task('js', function () {
+//   gulp.src('js/script.js')
+//     .pipe(minify({
+//       ext:{
+//         src: '-debug.js',
+//         min: '.js'
+//       },
+//       noSource: true,
+//       ignoreFiles: ['-min.js']
+//     }))
+//     .pipe(gulp.dest(destination + '/script'))
+// });
 
 // optimization 'jpg' and 'png'
-gulp.task('image', function () {
-  return gulp.src('img/*.{jpg,JPG,png}')
-    .pipe(imageOptimize())
-    .pipe(gulp.dest(destination + '/img'));
-});
+// gulp.task('image', function () {
+//   return gulp.src('img/*.{jpg,jpeg,png}')
+//     .pipe(imageOptimize())
+//     .pipe(gulp.dest(destination + '/img'));
+// });
 
 // optimization 'svg'
-gulp.task('svg', function () {
-  return gulp.src('img/*.svg')
-    .pipe(svgOptimize())
-    .pipe(gulp.dest(destination + '/img'));
-});
+// gulp.task('svg', function () {
+//   return gulp.src('img/*.svg')
+//     .pipe(svgOptimize())
+//     .pipe(gulp.dest(destination + '/img'));
+// });
 
 // hashing filenames based on content
 // gulp.task('revision', ['html', 'css', 'js'], function () {
@@ -75,11 +75,11 @@ gulp.task('svg', function () {
 // });
 
 // watch everything
-gulp.task('watch', function () {
-  gulp.watch('*.html, css/*.css, js/*.js');
-  gulp.watch('img/*.{jpg,JPG,png}', ['image']);
-  gulp.watch('img/*.svg', ['svg']);
-});
+// gulp.task('watch', function () {
+//   gulp.watch('*.html, css/*.css, js/*.js');
+//   gulp.watch('img/*.{jpg,JPG,png}', ['image']);
+//   gulp.watch('img/*.svg', ['svg']);
+// });
 
 // gulp.task('default', ['revision', 'watch']);
 // gulp.task('default', ['revReplace', 'image', 'svg', 'watch']);
