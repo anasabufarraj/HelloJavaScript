@@ -68,6 +68,12 @@ gulp.task('htaccess', function () {
     .pipe(gulp.dest(destination));
 });
 
+// favicon files
+gulp.task('favicon', function () {
+  return gulp.src(source + 'favicon.ico')
+    .pipe(gulp.dest(destination));
+});
+
 // revision files with hash identifier based on content
 gulp.task('revision', ['html', 'css', 'js', 'image', 'svg'], function () {
   return gulp.src(temp + '**/*.{css,js,jpg,jpeg,png,svg}')
@@ -95,4 +101,4 @@ gulp.task('watch', function () {
   gulp.watch(source + '.htaccess', ['htaccess'])
 });
 
-gulp.task('default', ['fonts', 'htaccess', 'revReplace', 'watch']);
+gulp.task('default', ['fonts', 'htaccess', 'favicon','revReplace', 'watch']);
