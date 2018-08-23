@@ -1,105 +1,132 @@
 const gulp = require('gulp');
 const htmlMinify = require('gulp-htmlmin');
-const cssNano = require('gulp-cssnano');
+const cssMinify = require('gulp-cssmin');
 const minify = require('gulp-minify');
-const imageMin = require('gulp-imagemin');
-const svgMin = require('gulp-svgmin');
+const imageMinify = require('gulp-imagemin');
+const svgMinify = require('gulp-svgmin');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const revDel = require('rev-del');
-const temp = 'temp/';
-const source = 'public/';
-const destination = 'build/';
+const del = require('del');
+const paths = {
+  base: {
+    src: 'source/',
+    tmp: 'temp/',
+    dest: 'public/'
+  },
+  styles: {
+    src: 'source/styles/style.css',
+    dest: 'temp/styles/'
+  },
+  scripts: {
+    src: 'source/scripts/*.js',
+    dest: 'temp/scripts/'
+  },
+  images: {
+    src: 'source/images/',
+    dest: 'temp/images/'
+  },
+  fonts: {
+    src: 'source/fonts/',
+    dest: 'public/fonts/'
+  },
+  rootFiles: {
+    src: ['source/*.*', 'source/.htaccess'],
+    dest: 'public/'
+  }
+};
 
 // minify HTML
 gulp.task('html', function () {
-  return gulp.src(source + '*.html')
+  return gulp.src(paths.base.src + '*.html')
     .pipe(htmlMinify({
       collapseWhitespace: true,
       removeComments: true
     }))
-    .pipe(gulp.dest(temp));
+    .pipe(gulp.dest(paths.base.tmp));
 });
 
 // minify CSS with cssnano
 gulp.task('css', function () {
-  return gulp.src(source + 'styles/style.css')
-    .pipe(cssNano())
-    .pipe(gulp.dest(temp + 'styles'));
+  return gulp.src(paths.styles.src)
+    .pipe(cssMinify())
+    .pipe(gulp.dest(paths.styles.dest));
 });
 
 // minify JavaScript with terser
 gulp.task('js', function () {
-  gulp.src(source + 'scripts/**/*.js')
+  gulp.src(paths.scripts.src)
     .pipe(minify({
       ext:{
         src: '-debug.js',
         min: '.js'
       },
       noSource: true,
-      ignoreFiles: ['-min.js']
+      ignoreFiles: ['.min.js']
     }))
-    .pipe(gulp.dest(temp + 'scripts'))
+    .pipe(gulp.dest(paths.scripts.dest))
 });
 
 // optimize 'jpg' and 'png' images
 gulp.task('image', function () {
-  return gulp.src(source + '/assets/**/*.{jpg,jpeg,png}')
-    .pipe(imageMin())
-    .pipe(gulp.dest(temp + '/assets'));
+  return gulp.src(paths.images.src + '*.{jpg,jpeg,png}')
+    .pipe(imageMinify())
+    .pipe(gulp.dest(paths.images.dest));
 });
 
 // optimization 'svg' graphics
 gulp.task('svg', function () {
-  return gulp.src(source + '/assets/**/*.svg')
-    .pipe(svgMin())
-    .pipe(gulp.dest(temp + '/assets'));
+  return gulp.src(paths.images.src + '*.svg')
+    .pipe(svgMinify())
+    .pipe(gulp.dest(paths.images.dest));
 });
 
-// font files
+// clone fonts
 gulp.task('fonts', function () {
-  return gulp.src(source + 'assets/fonts/**')
-    .pipe(gulp.dest(destination + 'assets/fonts'));
+  return gulp.src(paths.fonts.src + '*.*')
+    .pipe(gulp.dest(paths.fonts.dest));
 });
 
-// .htaccess files
-gulp.task('htaccess', function () {
-  return gulp.src(source + '.htaccess')
-    .pipe(gulp.dest(destination));
-});
-
-// favicon files
-gulp.task('favicon', function () {
-  return gulp.src(source + 'favicon.ico')
-    .pipe(gulp.dest(destination));
+// clone root files
+gulp.task('rootFiles', function () {
+  return gulp.src(paths.rootFiles.src)
+    .pipe(gulp.dest(paths.rootFiles.dest));
 });
 
 // revision files with hash identifier based on content
 gulp.task('revision', ['html', 'css', 'js', 'image', 'svg'], function () {
-  return gulp.src(temp + '**/*.{css,js,jpg,jpeg,png,svg}')
+  return gulp.src(paths.base.tmp + '**/*.{css,js,jpg,jpeg,png,svg}')
     .pipe(rev())
-    .pipe(gulp.dest(destination))
+    .pipe(gulp.dest(paths.base.dest))
     .pipe(rev.manifest())
-    .pipe(revDel({dest: destination}))
-    .pipe(gulp.dest(destination))
+    .pipe(revDel({dest: paths.base.dest}))
+    .pipe(gulp.dest(paths.base.dest))
 });
 
-// find and replace all occurrences of new filenames.
-// based on manifest.json file
-// must run immediately after 'revision'
+/*
+find and replace all occurrences with new hashed
+filenames based on manifest.json (must run immediately
+after 'rev')
+*/
 gulp.task('revReplace', ['revision'], function () {
-  let manifest = gulp.src(destination + 'rev-manifest.json');
-  return gulp.src(temp + '**/*.html')
+  let manifest = gulp.src(paths.base.dest + 'rev-manifest.json');
+  return gulp.src(paths.base.tmp + '*.html')
     .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest(destination))
+    .pipe(gulp.dest(paths.base.dest))
 });
 
-
-// // watch everything
+// watch everything
 gulp.task('watch', function () {
-  gulp.watch(source + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
-  gulp.watch(source + '/fonts', ['htaccess']);
-  gulp.watch(source + '.htaccess', ['htaccess'])
+  gulp.watch(paths.base.src + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
+  gulp.watch(paths.fonts.src, ['fonts']);
+  gulp.watch(paths.rootFiles.src, ['rootFiles']);
 });
 
-gulp.task('default', ['fonts', 'htaccess', 'favicon','revReplace', 'watch']);
+// executing tasks by a sequence
+gulp.task('default', ['fonts', 'rootFiles', 'revReplace', 'watch'],
+  function () {
+    del(paths.base.tmp); // delete temp folder on build
+    console.log('Watching...');
+  }
+);
+

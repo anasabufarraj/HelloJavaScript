@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'Sansation-Light';
-  src: url(../assets/fonts/Sansation-Light.woff) format('woff');
+  src: url(../fonts/Sansation-Light.woff) format('woff');
 }
 @font-face {
   font-family: 'Sansation-Regular';
-  src: url(../assets/fonts/Sansation-Regular.woff) format('woff');
+  src: url(../fonts/Sansation-Regular.woff) format('woff');
 }
 @font-face {
   font-family: 'Sansation-Bold';
-  src: url(../assets/fonts/Sansation-Bold.woff) format('woff');
+  src: url(../fonts/Sansation-Bold.woff) format('woff');
 }
 body {
   color: #fff;

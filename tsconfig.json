@@ -6,9 +6,8 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "allowJs": true,             // Allow javascript files to be compiled.
-    "strict": false,              // enable all strict type-checking options.
-    "alwaysStrict": false        // parse in strict mode and emit "use strict" for each source file.
+    "strict": true,
+    "alwaysStrict": false
   },
   "exclude": [
     "node_modules"

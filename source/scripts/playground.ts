@@ -2,3 +2,6 @@
 // TypeScript Playground
 // 29 Jul 2018
 
+const del = require('del');
+
+del('temp');
