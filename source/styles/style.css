@@ -25,4 +25,7 @@ body {
   background-color: inherit;
   transition: 0.125s ease-in-out;
 }
+::placeholder {
+  color: gray;
+}
 /*# sourceMappingURL=style.css.map */

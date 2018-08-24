@@ -7,4 +7,4 @@ const del = require('del');
 function foo(a) {
   return a
 }
-del('temp');
+del('temp')
