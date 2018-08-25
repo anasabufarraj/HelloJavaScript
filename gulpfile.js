@@ -1,11 +1,11 @@
 const gulp = require('gulp');
-const minifyHTML = require('gulp-htmlmin');
-const postCSS = require('gulp-postcss');
+const htmlmin = require('gulp-htmlmin');
+const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const minifyJS = require('gulp-minify');
-const minifyImages = require('gulp-imagemin');
-const minifySVG = require('gulp-svgmin');
+const minify = require('gulp-minify');
+const imagemin = require('gulp-imagemin');
+const svgmin = require('gulp-svgmin');
 const rev = require('gulp-rev');
 const revReplace = require('gulp-rev-replace');
 const revDel = require('rev-del');
@@ -42,17 +42,17 @@ const paths = {
 // minify HTML
 gulp.task('html', function () {
   return gulp.src(paths.base.src + '**/*.html')
-    .pipe(minifyHTML({
+    .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true
     }))
     .pipe(gulp.dest(paths.base.tmp))
 });
 
-// minify and prefix CSS
+// prefix and minify CSS
 gulp.task('postCSS', function () {
   return gulp.src(paths.styles.src)
-    .pipe(postCSS([
+    .pipe(postcss([
       autoprefixer({browsers: ['last 2 version']}),
       cssnano()
     ]))
@@ -62,7 +62,7 @@ gulp.task('postCSS', function () {
 // minify JavaScript
 gulp.task('js', function () {
   gulp.src(paths.scripts.src)
-    .pipe(minifyJS({
+    .pipe(minify({
       ext:{
         src: '-debug.js',
         min: '.js'
@@ -76,14 +76,14 @@ gulp.task('js', function () {
 // optimize 'jpg' and 'png' images
 gulp.task('image', function () {
   return gulp.src(paths.images.src + '*.{jpg,jpeg,png}')
-    .pipe(minifyImages())
+    .pipe(imagemin())
     .pipe(gulp.dest(paths.images.dest))
 });
 
 // optimization 'svg' graphics
 gulp.task('svg', function () {
   return gulp.src(paths.images.src + '*.svg')
-    .pipe(minifySVG())
+    .pipe(svgmin())
     .pipe(gulp.dest(paths.images.dest))
 });
 
