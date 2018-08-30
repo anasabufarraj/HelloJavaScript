@@ -11,9 +11,7 @@
   src: url(../fonts/Sansation-Bold.woff) format('woff');
 }
 body {
-  color: #fff;
-  background-color: #dc5d55;
-  padding: 4px 14px;
+  padding: 22px 14px;
   font-family: Sansation-Light, sans-serif;
 }
 .header {
@@ -26,6 +24,6 @@ body {
   transition: 0.125s ease-in-out;
 }
 ::placeholder {
-  color: gray;
+  color: lightskyblue;
 }
 /*# sourceMappingURL=style.css.map */
