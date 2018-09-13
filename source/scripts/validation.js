@@ -4,8 +4,10 @@
 
 const inputs = document.querySelectorAll('input');
 const patterns = {
-  phone: /^[0-9]{11}$/,
-  email: /^[0-9]{11}$/
+  username: /^[a-z\d]{8,}$/,
+  phone: /^\d{11}$/,
+  password: /^[\w@-]{8,20}$/,
+  email: /^([\w\d.-]+)@([a-z\d-]+)\.([a-z]{2,12})(\.[a-z]{2,6})?$/i
 };
 
 // validation function
@@ -16,8 +18,8 @@ function validate(field, regex) {
 }
 
 // validate on each keyup event
-inputs.forEach(input => {
-  input.addEventListener('keyup', e => {
+inputs.forEach(function(input) {
+  input.addEventListener('keyup', function(e) {
     validate(e.target, patterns[e.target.attributes.name.value]);
   });
 });

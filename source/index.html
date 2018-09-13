@@ -11,25 +11,47 @@
 </head>
 <body>
 <div id="myDiv">
-  <!--<h2 id="myId" class="header" style="">You Don't Know <span>JavaScript!</span></h2>-->
   <h5 id="myId" class="header">I &nbsp;❤️ RegEx</h5>
 </div>
 
 <form>
   <div class="form-group">
-    <input class="form-control" type="text" name="phone" placeholder="Phone" pattern="^[0-9]{11}$"/>
+    <input class="form-control" type="text" name="username" placeholder="username"/>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Invalid name</div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="number" name="phone" placeholder="Phone"/>
     <div class="valid-feedback">Looks good!</div>
     <div class="invalid-feedback">Invalid phone number</div>
   </div>
-
   <div class="form-group">
-    <input class="form-control" type="email" name="email" placeholder="e-mail" pattern=""/>
+    <input class="form-control" type="password" name="password" placeholder="password"/>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Must be at least 11 characters long</div>
   </div>
-
-  <button class="btn btn-sm btn-outline-secondary">Submit</button>
+  <div class="form-group">
+    <input class="form-control" type="email" name="email" placeholder="e-mail"/>
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Invalid email</div>
+  </div>
+  <button class="btn btn-sm btn-secondary">Submit</button>
 </form>
+
+<!--meter; This is cool-->
+<div class="pt-2">
+  <label for="fuel">Fuel Meter</label>
+  <meter id="fuel" min="0" max="100" low="33" high="67" optimum="80" value="50">at 50/100</meter>
+</div>
+
+<!--progress: This is cool-->
+<div class="pt-2">
+  <label for="file">File progress</label>
+  <progress id="file" max="100" value="70">70%</progress>
+</div>
 
 <noscript>Please turn on JavaScript in browser settings</noscript>
 <script src="scripts/script.js"></script>
+<script src="scripts/validation.js"></script>
 </body>
 </html>
