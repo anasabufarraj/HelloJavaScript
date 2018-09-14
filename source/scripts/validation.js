@@ -18,8 +18,11 @@ function validate(field, regex) {
 }
 
 // validate on each keyup event
-inputs.forEach(function(input) {
+function onKeyup(input) {
   input.addEventListener('keyup', function(e) {
     validate(e.target, patterns[e.target.attributes.name.value]);
   });
-});
+}
+
+// call validation for each input
+inputs.forEach(onKeyup);
