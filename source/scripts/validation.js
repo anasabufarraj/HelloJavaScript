@@ -19,10 +19,10 @@ function validate(field, regex) {
 
 // validate on each keyup event
 function onKeyup(input) {
-  input.addEventListener('keyup', function(e) {
+  input.addEventListener('keyup', e => {
     validate(e.target, patterns[e.target.attributes.name.value]);
   });
 }
 
-// call validation for each input
+// call validation function for each input
 inputs.forEach(onKeyup);

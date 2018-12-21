@@ -1,7 +1,11 @@
-const add = require('./function');
+// const add = require('./function');
+
+function add() {
+  return 2 + 3;
+}
 
 test('check 2 + 3 to equal 5', () => {
-  expect(add(2, 3)).toEqual(5);
+  expect(add(2, 3)).toEqual(4);
 });
 
 test('check 2 + 3 to NOT to be greater than 9', () => {

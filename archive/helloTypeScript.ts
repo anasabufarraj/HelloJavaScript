@@ -87,46 +87,46 @@
 // FIXME: fix the current type.
 
 /// --- Generics
-function returnAnything<T>(any: T): T {
-  console.log(any);
-  return any
-}
+// function returnAnything<T>(any: T): T {
+//   console.log(any);
+//   return any
+// }
+//
+// returnAnything('Hello');
+// returnAnything(65);
+// returnAnything(true);
+// returnAnything(Math.pow(2, 8));
+//
+// function clone<T>(any: T): T {
+//   let serialized = JSON.stringify(any);
+//   return JSON.parse(serialized);
+// }
+//
+// let log = clone(
+//   {
+//     "compilerOptions": {
+//       "target": "es5",
+//       "module": "commonjs",
+//       "noImplicitAny": true,
+//       "removeComments": true,
+//       "preserveConstEnums": true,
+//       "sourceMap": false
+//     },
+//     "exclude": [
+//       "node_modules"
+//     ]
+//   }
+// );
 
-returnAnything('Hello');
-returnAnything(65);
-returnAnything(true);
-returnAnything(Math.pow(2, 8));
-
-function clone<T>(any: T): T {
-  let serialized = JSON.stringify(any);
-  return JSON.parse(serialized);
-}
-
-let log = clone(
-  {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "noImplicitAny": true,
-      "removeComments": true,
-      "preserveConstEnums": true,
-      "sourceMap": false
-    },
-    "exclude": [
-      "node_modules"
-    ]
-  }
-);
-
-console.log(log);
-
-let list1: number[] = [1, 2, 3];
-let list2: Array<number> = [1, 2, 3];
-console.log(list1, list2);
-
-/// --- Date type
-let dateStamp: Date = new Date(Date.now());
-console.log(dateStamp);
+// console.log(log);
+//
+// let list1: number[] = [1, 2, 3];
+// let list2: Array<number> = [1, 2, 3];
+// console.log(list1, list2);
+//
+// /// --- Date type
+// let dateStamp: Date = new Date(Date.now());
+// console.log(dateStamp);
 
 /// --- Namespaces
 // namespace ToDoApp.Model {

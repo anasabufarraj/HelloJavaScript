@@ -1,3 +1,7 @@
+// (c)) Copyright 2018, Anas Abu Farraj.
+// gulp.js
+// 29 Jun 2018
+
 const gulp = require('gulp');
 const htmlmin = require('gulp-htmlmin');
 const postcss = require('gulp-postcss');
@@ -40,73 +44,78 @@ const paths = {
 };
 
 // minify HTML
-gulp.task('html', function () {
-  return gulp.src(paths.base.src + '**/*.html')
-    .pipe(htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    }))
-    .pipe(gulp.dest(paths.base.tmp))
+gulp.task('html', function() {
+  return gulp
+    .src(paths.base.src + '**/*.html')
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+        removeComments: true
+      })
+    )
+    .pipe(gulp.dest(paths.base.tmp));
 });
 
 // prefix and minify CSS
-gulp.task('postCSS', function () {
-  return gulp.src(paths.styles.src)
-    .pipe(postcss([
-      autoprefixer({browsers: ['last 2 version']}),
-      cssnano()
-    ]))
-    .pipe(gulp.dest(paths.styles.dest))
+gulp.task('postCSS', function() {
+  return gulp
+    .src(paths.styles.src)
+    .pipe(postcss([autoprefixer({ browsers: ['last 2 version'] }), cssnano()]))
+    .pipe(gulp.dest(paths.styles.dest));
 });
 
 // minify JavaScript
-gulp.task('js', function () {
-  gulp.src(paths.scripts.src)
-    .pipe(minify({
-      ext:{
-        src: '-debug.js',
-        min: '.js'
-      },
-      noSource: true,
-      ignoreFiles: ['.min.js']
-    }))
-    .pipe(gulp.dest(paths.scripts.dest))
+gulp.task('js', function() {
+  gulp
+    .src(paths.scripts.src)
+    .pipe(
+      minify({
+        ext: {
+          src: '-debug.js',
+          min: '.js'
+        },
+        noSource: true,
+        ignoreFiles: ['.min.js']
+      })
+    )
+    .pipe(gulp.dest(paths.scripts.dest));
 });
 
 // optimize 'jpg' and 'png' images
-gulp.task('image', function () {
-  return gulp.src(paths.images.src + '*.{jpg,jpeg,png}')
+gulp.task('image', function() {
+  return gulp
+    .src(paths.images.src + '*.{jpg,jpeg,png}')
     .pipe(imagemin())
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(gulp.dest(paths.images.dest));
 });
 
 // optimization 'svg' graphics
-gulp.task('svg', function () {
-  return gulp.src(paths.images.src + '*.svg')
+gulp.task('svg', function() {
+  return gulp
+    .src(paths.images.src + '*.svg')
     .pipe(svgmin())
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(gulp.dest(paths.images.dest));
 });
 
 // clone fonts
-gulp.task('fonts', function () {
-  return gulp.src(paths.fonts.src + '*.*')
-    .pipe(gulp.dest(paths.fonts.dest))
+gulp.task('fonts', function() {
+  return gulp.src(paths.fonts.src + '*.*').pipe(gulp.dest(paths.fonts.dest));
 });
 
 // clone root files
-gulp.task('rootFiles', function () {
-  return gulp.src(paths.rootFiles.src)
-    .pipe(gulp.dest(paths.rootFiles.dest))
+gulp.task('rootFiles', function() {
+  return gulp.src(paths.rootFiles.src).pipe(gulp.dest(paths.rootFiles.dest));
 });
 
 // revision files with hash identifier based on content
-gulp.task('revision', ['html', 'postCSS', 'js', 'image', 'svg'], function () {
-  return gulp.src(paths.base.tmp + '**/*.{css,js,jpg,jpeg,png,svg}')
+gulp.task('revision', ['html', 'postCSS', 'js', 'image', 'svg'], function() {
+  return gulp
+    .src(paths.base.tmp + '**/*.{css,js,jpg,jpeg,png,svg}')
     .pipe(rev())
     .pipe(gulp.dest(paths.base.dest))
     .pipe(rev.manifest())
-    .pipe(revDel({dest: paths.base.dest}))
-    .pipe(gulp.dest(paths.base.dest))
+    .pipe(revDel({ dest: paths.base.dest }))
+    .pipe(gulp.dest(paths.base.dest));
 });
 
 /*
@@ -114,24 +123,25 @@ find and replace all occurrences with new hashed
 filenames based on manifest.json (must run immediately
 after 'rev')
 */
-gulp.task('revReplace', ['revision'], function () {
+gulp.task('revReplace', ['revision'], function() {
   let manifest = gulp.src(paths.base.dest + 'rev-manifest.json');
-  return gulp.src(paths.base.tmp + '**/*.html')
-    .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest(paths.base.dest))
+  return gulp
+    .src(paths.base.tmp + '**/*.html')
+    .pipe(revReplace({ manifest: manifest }))
+    .pipe(gulp.dest(paths.base.dest));
 });
 
 // watch everything
-gulp.task('watch', function () {
-  gulp.watch(paths.base.src + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
+gulp.task('watch', function() {
+  gulp.watch(paths.base.src + '**/*.{html,css,js,jpg,jpeg,png,svg}', [
+    'revReplace'
+  ]);
   gulp.watch(paths.fonts.src, ['fonts']);
-  gulp.watch(paths.rootFiles.src, ['rootFiles'])
+  gulp.watch(paths.rootFiles.src, ['rootFiles']);
 });
 
 // executing tasks by a sequence
-gulp.task('default', ['fonts', 'rootFiles', 'revReplace', 'watch'],
-  function () {
-    del(paths.base.tmp); // delete temp folder on build
-    console.log('Watching...')
-  }
-);
+gulp.task('default', ['fonts', 'rootFiles', 'revReplace', 'watch'], function() {
+  del(paths.base.tmp); // delete temp folder on build
+  console.log('Watching...');
+});

@@ -2,9 +2,13 @@
 // JavaScript Playground
 // 29 Jun 2018
 
-function foo(str, b) {
-  eval(str);
-  console.log(a, b);
-}
+const puppeteer = require('puppeteer');
 
-foo('var a = 1', 3); // 1 3
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://goyoom.com');
+  await page.screenshot({ path: './source/images/goyoom.png' });
+
+  await browser.close();
+})();
