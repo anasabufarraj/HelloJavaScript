@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    {% comment %}
+        Include all CSS frameworks and common styles
+    {% endcomment %}
+    {{ head_uscreen }}
+    {% include 'seo' %}
+    {{ 'polaris.css' | stylesheet_link }}
+    {{ 'polaris.js' | javascript_link }}
+</head>
+
+<body>
+{{ gtm }}
+<style>
+    .header {
+        background-color: {{ settings.header.background_color }};
+    }
+    .dropdown--body,
+    .mobile_menu,
+    .mobile_menu--link {
+        background-color: {{ settings.header.background_color }};
+    }
+    .header .top_menu a,
+    .header .top_menu a:hover {
+        color: {{ settings.header.links_color }};
+    }
+    .header .dropdown,
+    .header .fas,
+    .header .top_menu--link,
+    .header .top_menu--logo a,
+    .header .top_menu .dropdown--head-link {
+        color: {{ settings.header.links_color }};
+    }
+    a {
+        color: {{ settings.common.primary_color }};
+    }
+    .cce--upgrade-button, .btn--primary {
+        border-color: {{ settings.common.primary_color }};
+    }
+    .primary-hover-color:hover {
+        color: {{ settings.common.primary_color }} !important;
+    }
+    .author--profile {
+        border-color: {{ settings.common.primary_color }};
+        color: {{ settings.common.primary_color }};
+    }
+    .program--category-link {
+        color: {{ settings.common.primary_color }} !important;
+        background: {{ settings.common.primary_color | to_rgba, opacity: 0.2 }};
+        border-color: {{ settings.common.primary_color | to_rgba, opacity: 0.2 }};
+    }
+    .tabs .tab.active {
+        border-color: {{ settings.common.primary_color }};
+    }
+</style>
+{{ header_uscreen }}
+{% unless template == 'index' %}
+    {% include 'header' %}
+{% endunless %}
+<main id="page">
+    <div class="page">
+        {{ content_for_layout }}
+    </div>
+    {% include 'footer' %}
+</main>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</body>
+</html>

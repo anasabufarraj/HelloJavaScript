@@ -6,23 +6,24 @@
     "dev": "lite-server"
   },
   "repository": "github",
-  "dependencies": {
-    "gulp-cli": "^2.0.1",
-    "npm": "^6.4.0",
-    "typescript": "^3.3.0-dev.20181220"
-  },
   "license": "ISC",
   "description": "Training Projects",
   "keywords": [],
   "author": "Anas Abu Farraj",
   "version": "1.0.0",
+  "dependencies": {
+    "moment": "^2.23.0",
+    "puppeteer": "^1.11.0"
+  },
   "devDependencies": {
-    "@types/jest": "^23.3.9",
+    "@types/jest": "^23.3.10",
+    "@types/puppeteer": "^1.11.1",
     "apache-server-configs": "^3.0.0",
     "autoprefixer": "^9.4.3",
-    "cssnano": "^4.1.0",
+    "cssnano": "^4.1.8",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
     "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-minify": "^3.1.0",
@@ -32,7 +33,6 @@
     "gulp-svgmin": "^1.2.4",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
-    "less": "^3.9.0",
     "lite-server": "^2.4.0",
     "rev-del": "^1.0.5"
   }

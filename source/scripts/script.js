@@ -2,13 +2,17 @@
 // JavaScript Playground
 // 29 Jun 2018
 
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
+//
+// puppeteer.launch().then(async browser => {
+//   // puppeteer.launch() promise
+//   // returns a headless browser instance can interact with
+//   const page = await browser.newPage(); // create an about:blank page
+//
+//   await page.goto('http://google.com'); // go to page
+//   await page.screenshot({ path: 'google.png' }); // screenshot the page
+//
+//   await browser.close(); // close the browser
+// });
 
-(async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://goyoom.com');
-  await page.screenshot({ path: './source/images/goyoom.png' });
-
-  await browser.close();
-})();
+// --- END OF CODE --->
