@@ -1,4 +1,4 @@
-// (c)) Copyright 2018, Anas Abu Farraj.
+// (c) Copyright 2018, Anas Abu Farraj.
 // JavaScript Playground
 // 29 Jun 2018
 
@@ -16,3 +16,10 @@
 // });
 
 // --- END OF CODE --->
+function speak(message) {
+  var msg = new SpeechSynthesisUtterance(message);
+  var voices = window.speechSynthesis.getVoices();
+  msg.voice = voices[0];
+  window.speechSynthesis.speak(msg);
+}
+speak('Hello, world');

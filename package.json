@@ -12,14 +12,12 @@
   "author": "Anas Abu Farraj",
   "version": "1.0.0",
   "dependencies": {
-    "moment": "^2.23.0",
-    "puppeteer": "^1.11.0"
+    "moment": "^2.24.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.10",
-    "@types/puppeteer": "^1.11.1",
+    "@types/jest": "^23.3.13",
     "apache-server-configs": "^3.0.0",
-    "autoprefixer": "^9.4.3",
+    "autoprefixer": "^9.4.7",
     "cssnano": "^4.1.8",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
