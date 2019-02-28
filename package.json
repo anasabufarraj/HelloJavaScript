@@ -6,7 +6,7 @@
     "dev": "lite-server"
   },
   "repository": "github",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Training Projects",
   "keywords": [],
   "author": "Anas Abu Farraj",

@@ -4,9 +4,9 @@
 # .gitignore file
 
 .DS_Store
-.idea
-node_modules/
-public/
-temp/
-source/libraries/
+/.idea/
+/node_modules/
+/public/
+/temp/
+/source/libraries/
 !/source/index.html
