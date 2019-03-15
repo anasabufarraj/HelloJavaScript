@@ -19,28 +19,28 @@ const paths = {
   base: {
     src: 'source/',
     tmp: 'temp/',
-    dest: 'public/'
+    dest: 'public/',
   },
   styles: {
     src: 'source/styles/style.css',
-    dest: 'temp/styles/'
+    dest: 'temp/styles/',
   },
   scripts: {
     src: 'source/scripts/*.js',
-    dest: 'temp/scripts/'
+    dest: 'temp/scripts/',
   },
   images: {
     src: 'source/images/',
-    dest: 'temp/images/'
+    dest: 'temp/images/',
   },
   fonts: {
     src: 'source/fonts/',
-    dest: 'public/fonts/'
+    dest: 'public/fonts/',
   },
   rootFiles: {
     src: ['source/*.*', 'source/.htaccess'],
-    dest: 'public/'
-  }
+    dest: 'public/',
+  },
 };
 
 // minify HTML
@@ -50,7 +50,7 @@ gulp.task('html', function() {
     .pipe(
       htmlmin({
         collapseWhitespace: true,
-        removeComments: true
+        removeComments: true,
       })
     )
     .pipe(gulp.dest(paths.base.tmp));
@@ -72,10 +72,10 @@ gulp.task('js', function() {
       minify({
         ext: {
           src: '-debug.js',
-          min: '.js'
+          min: '.js',
         },
         noSource: true,
-        ignoreFiles: ['.min.js']
+        ignoreFiles: ['.min.js'],
       })
     )
     .pipe(gulp.dest(paths.scripts.dest));
@@ -98,7 +98,7 @@ gulp.task('svg', function() {
 });
 
 // clone fonts
-gulp.task('fonts', function() {
+gulp.task('fonts', () => {
   return gulp.src(paths.fonts.src + '*.*').pipe(gulp.dest(paths.fonts.dest));
 });
 
@@ -108,7 +108,7 @@ gulp.task('rootFiles', function() {
 });
 
 // revision files with hash identifier based on content
-gulp.task('revision', ['html', 'postCSS', 'js', 'image', 'svg'], function() {
+gulp.task('revision', [('html', 'postCSS', 'js', 'image', 'svg')], function() {
   return gulp
     .src(paths.base.tmp + '**/*.{css,js,jpg,jpeg,png,svg}')
     .pipe(rev())
@@ -133,9 +133,7 @@ gulp.task('revReplace', ['revision'], function() {
 
 // watch everything
 gulp.task('watch', function() {
-  gulp.watch(paths.base.src + '**/*.{html,css,js,jpg,jpeg,png,svg}', [
-    'revReplace'
-  ]);
+  gulp.watch(paths.base.src + '**/*.{html,css,js,jpg,jpeg,png,svg}', ['revReplace']);
   gulp.watch(paths.fonts.src, ['fonts']);
   gulp.watch(paths.rootFiles.src, ['rootFiles']);
 });
