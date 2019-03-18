@@ -1,6 +1,6 @@
 {
   "main": "null",
-  "name": "hellojavascript",
+  "name": "hello_javascript",
   "scripts": {
     "test": "jest",
     "dev": "lite-server"
