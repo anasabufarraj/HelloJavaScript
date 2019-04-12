@@ -2,17 +2,22 @@
 // JavaScript Playground
 // 29 Jun 2018
 
-// const puppeteer = require('puppeteer');
-//
-// puppeteer.launch().then(async browser => {
-//   // puppeteer.launch() promise
-//   // returns a headless browser instance can interact with
-//   const page = await browser.newPage(); // create an about:blank page
-//
-//   await page.goto('http://google.com'); // go to page
-//   await page.screenshot({ path: 'google.png' }); // screenshot the page
-//
-//   await browser.close(); // close the browser
-// });
+var a = NaN,
+  b = '34',
+  c = 42;
 
-// --- END OF CODE --->
+console.log(isNaN(a)); // true
+console.log(isNaN(b)); // true -- oops!
+console.log(isNaN(c)); // false
+
+console.log(Number.isNaN(a)); // true
+console.log(Number.isNaN(b)); // false -- fixed!
+console.log(Number.isNaN(c)); // false
+
+const str = 'hello! world';
+
+console.log(str.padStart(14)); // "  hello!"
+console.log(str.padStart(14, '.')); // "..hello!"
+
+console.log(str.padEnd(14)); // "hello!  "
+console.log(str.padEnd(14, '.')); // "hello!.."
