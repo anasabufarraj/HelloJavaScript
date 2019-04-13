@@ -3,7 +3,8 @@
   "name": "hello_javascript",
   "scripts": {
     "test": "jest",
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "debug": "nodemon --inspect ./source/scripts/script.js"
   },
   "repository": "github",
   "license": "MIT",

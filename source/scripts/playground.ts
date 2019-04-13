@@ -6,6 +6,7 @@
 jQuery(() => {
   // change the footer message at the bottom of the page
   jQuery('footer small').text('Ready to Manipulate!');
+  console.log('hello')
 
   // jQuery('#rect')
   //   // animate width to 200px on mouseover
