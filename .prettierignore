@@ -1,3 +1,4 @@
 # list of ignored files
 
-/node_modules/
+/node_modules
+/public

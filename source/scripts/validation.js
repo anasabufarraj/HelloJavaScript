@@ -7,7 +7,7 @@ const patterns = {
   username: /^[a-z\d]{8,}$/,
   phone: /^\d{11}$/,
   password: /^[\w@-]{8,20}$/,
-  email: /^([\w\d.-]+)@([a-z\d-]+)\.([a-z]{2,12})(\.[a-z]{2,6})?$/i
+  email: /^([\w\d.-]+)@([a-z\d-]+)\.([a-z]{2,12})(\.[a-z]{2,6})?$/i,
 };
 
 // validation function

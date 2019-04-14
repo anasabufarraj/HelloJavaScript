@@ -2,14 +2,6 @@
 // JavaScript Playground
 // 29 Jun 2018
 
-var func = () => {
-  return 'foo';
-};
+let arr = ['a', 'b', 'c'];
 
-function gar(e) {
-  return e;
-}
-
-console.log(func.name);
-console.log(gar.name);
-console.log(func.name);
+console.log(arr.includes('a', 1));
