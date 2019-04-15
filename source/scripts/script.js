@@ -5,3 +5,4 @@
 let arr = ['a', 'b', 'c'];
 
 console.log(arr.includes('a', 1));
+console.log('hello, world');
